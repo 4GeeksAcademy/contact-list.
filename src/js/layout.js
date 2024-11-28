@@ -9,7 +9,7 @@ import injectContext from "./store/appContext";
 import Form from "./component/form.jsx";
 import toast, { Toaster } from 'react-hot-toast';
 
-import { Navbar } from "./component/navbar.jsx";
+import { Navbar } from "./component/navbar.js";
 import { Footer } from "./component/footer";
 
 import { FormEdit } from "./component/formEdit.jsx";

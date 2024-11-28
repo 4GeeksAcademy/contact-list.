@@ -77,28 +77,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(data);
 				setStore({ contactList: data.contacts });
 			},
-
 			updateContact: async (payload, id) => {
-
-				const response = await fetch(`https://playground.4geeks.com/contact/agendas/cesar/contacts/${id}`, {
-					method: "PUT",
-					headers: {
-						"Content-Type": "application/json"
-					},
-					body: JSON.stringify(payload)
-
-				});
-				const data = await response.json();
-				console.log(data);
-				const updatedContactList = getStore().contactList.map(contact => {
-					if (contact.id === id) {
-						return data.contact;
+				try {
+					const response = await fetch(`https://playground.4geeks.com/contact/agendas/cesar/contacts/${id}`, {
+						method: "PUT",
+						headers: { "Content-Type": "application/json" },
+						body: JSON.stringify(payload),
+					});
+			
+					if (!response.ok) {
+						throw new Error(`Failed to update contact: ${response.statusText}`);
 					}
-					return contact;
-				});
-				setStore({ contactList: updatedContactList });
-				toast.success("Contact updated successfully 🎉", {
-				});
+			
+					const { contact } = await response.json();
+			
+					setStore(prevStore => ({
+						...prevStore,
+						contactList: prevStore.contactList.map(existingContact =>
+							existingContact.id === id ? contact : existingContact
+						),
+					}));
+			
+					toast.success("Contact updated successfully 🎉");
+				} catch (error) {
+					console.error("Error updating contact:", error);
+					toast.error("Failed to update contact. Please try again.");
+				}
 			},
 
 

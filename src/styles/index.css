@@ -1,3 +1,13 @@
 /* 
     General Styles
 */
+#rick {
+    width: 200px;
+    border-radius: 200px;
+}
+#info {
+    margin-left: 50px;
+}
+#functions {
+    margin-left: 600px;
+}
