@@ -11,7 +11,13 @@ export const Navbar = () => {
 				</button>
 				<div className="collapse navbar-collapse" id="navbarNavAltMarkup">
 					<div className="navbar-nav ms-auto">
-						<div className="btn btn-success text-white"><Link to="/createContact" className="text-white text-decoration-none">Add new contact</Link></div>
+						<div className="btn btn-success text-white">
+							<Link to="/createContact" className="text-white text-decoration-none">
+								<button className="border border-0 bg-transparent">
+									Add new contact
+								</button>
+							</Link>
+						</div>
 					</div>
 				</div>
 			</div>

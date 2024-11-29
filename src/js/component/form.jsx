@@ -56,8 +56,8 @@ const Form = () => {
 
 
     return (
-        <div className="container py-5 mt-5" style={{ maxWidth: "500px", Height: "500px", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }}>
-            <h1 className="mb-4">{!id ? "Add new Contact" : `Editing info of ${name}`}</h1>
+        <div className="container py-5 mt-5" style={{ maxWidth: "800px", Height: "500px" }}>
+            <h1 className="mb-4 text-center">{!id ? "Add new Contact" : `Editing info of ${name}`}</h1>
             <div className="form-floating mb-3">
                 <input type="text" className="form-control " placeholder="guillermo Obando" onChange={(e) => setName(e.target.value)} value={name} required />
                 <label >Name</label>
@@ -74,8 +74,10 @@ const Form = () => {
                 <input type="text" className="form-control" placeholder="Password" onChange={(e) => setPhone(e.target.value)} />
                 <label >Number</label>
             </div>
-            <div className="btn btn-success mt-4 w-100 mb-4" onClick={saveContact}>Save</div>
-            <Link to="/" className="text-decoration-none d-flex justify-content-center"> Or go to contacts</Link>
+            <div className="d-flex">
+                <Link to="/" className="text-decoration-none pt-4"> Or go to contacts</Link>
+                <div className="btn btn-success mt-4 ms-auto mb-1" onClick={saveContact}>Save</div>
+            </div>
         </div>
     );
 

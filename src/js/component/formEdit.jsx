@@ -50,8 +50,8 @@ export const FormEdit = () => {
     }
 
     return (
-        <div className="container py-5 mt-5" style={{ maxWidth: "400px", height: "500px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)" }}>
-            <h1 className="mb-4">Update Contact</h1>
+        <div className="container py-5 mt-5" style={{ maxWidth: "800px", height: "500px" }}>
+            <h1 className="mb-4 text-center">Update Contact</h1>
             <form onSubmit={editContact}>
                 <div className="form-floating mb-3">
                     <input
@@ -97,11 +97,13 @@ export const FormEdit = () => {
                     />
                     <label>Phone Number</label>
                 </div>
-                <button type="submit" className="btn btn-success mt-4 w-100">Update Contact</button>
+                <div className="d-flex">
+                    <Link to="/" className="text-decoration-none d-flex justify-content-center mt-3">
+                        Or go to contacts
+                    </Link>
+                    <button type="submit" className="btn btn-success mt-4 ms-auto mb-1">Update Contact</button>
+                </div>
             </form>
-            <Link to="/" className="text-decoration-none d-flex justify-content-center mt-3">
-                Or go to contacts
-            </Link>
         </div>
     );
 };
