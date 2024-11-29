@@ -18,13 +18,13 @@ export const FormEdit = () => {
     const editContact = (event) => {
         event.preventDefault();
         if (name.trim() === "" || phone.trim() === "" || email.trim() === "" || address.trim() === "") {
-            toast.error("All fields are required ⛔");
+            toast.error("All fields must required ");
             return;
         }
 
         const payload = { name, phone, email, address };
         actions.updateContact(payload, id);
-        toast.success("Contact updated successfully 🎉");
+        toast.success("The contact was updated successfully");
         navigate("/");
     };
 

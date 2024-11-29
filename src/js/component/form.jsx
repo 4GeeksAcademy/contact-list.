@@ -17,7 +17,7 @@ const Form = () => {
     function saveContact(event) {
         event.preventDefault();
         if (name.trim() === "" || phone.trim() === "" || email.trim() === "" || address.trim() === "") {
-            toast.error("All fields are required ⛔");
+            toast.error("All fields must required");
             return null;
         }
 
